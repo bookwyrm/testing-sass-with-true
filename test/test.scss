@@ -1,0 +1,54 @@
+@import 'true';
+
+// From Thoughtbot's Bourbon
+/// Converts shorthand to the 4-value syntax.
+///
+/// @param {List} $shorthand
+///
+/// @example scss - Usage
+///   .element {
+///     margin: unpack(1em 2em);
+///   }
+///
+/// @example css - CSS Output
+///   .element {
+///     margin: 1em 2em 1em 2em;
+///   }
+
+@function unpack($shorthand) {
+  @if length($shorthand) == 1 {
+    @return nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1);
+  } @else if length($shorthand) == 2 {
+    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 1) nth($shorthand, 2);
+  } @else if length($shorthand) == 3 {
+    @return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 3) nth($shorthand, 2);
+  } @else {
+    @return $shorthand;
+  }
+}
+
+@include test-module('Utilities') {
+  @include test('unpack [function - 1 arg]') {
+    $test: unpack(1em);
+    $expect: 1em 1em 1em 1em;
+    @include assert-equal($test, $expect, 'Handles one value');
+  }
+
+  @include test('unpack [function - 2 args]') {
+    $test: unpack(1em 2em);
+    $expect: 1em 2em 1em 2em;
+    @include assert-equal($test, $expect, 'Handles two values');
+  }
+
+  @include test('unpack [function - 3 args]') {
+    $test: unpack(1em 2em 3em);
+    $expect: 1em 2em 3em 2em;
+    @include assert-equal($test, $expect, 'Handles three values');
+  }
+
+  @include test('unpack [function - 4 args]') {
+    $test: unpack(1em 2em 3em 4em);
+    $expect: 1em 2em 3em 4em;
+    @include assert-equal($test, $expect, 'Handles four values');
+  }
+}
