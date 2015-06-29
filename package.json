@@ -1,0 +1,29 @@
+{
+  "name": "testing-sass-with-true",
+  "version": "0.0.0",
+  "description": "Sample project exploring a setup for testing Sass with True.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bookwyrm/testing-sass-with-true.git"
+  },
+  "keywords": [
+    "sass",
+    "testing",
+    "true"
+  ],
+  "author": "Matt Vanderpol <matt@vanderpol.net> (http://mattvanderpol.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bookwyrm/testing-sass-with-true/issues"
+  },
+  "homepage": "https://github.com/bookwyrm/testing-sass-with-true",
+  "devDependencies": {
+    "sass-true": "~2.0.2",
+    "mocha": "~2.2.5",
+    "path": "~0.11.14"
+  }
+}
