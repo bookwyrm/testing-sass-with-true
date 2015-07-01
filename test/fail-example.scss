@@ -1,0 +1,13 @@
+@import 'true';
+
+// Tests for Utilities
+@import '../scss/utilities';
+
+@include test-module('Utilities - failure demonstration') {
+  @include test('unpack [function - 1 arg]') {
+    $test: unpack(1em);
+    $expect: 1em 1em 1em 2em; // Purposely introduce failure for demonstration
+    @include assert-equal($test, $expect, 'Handles one value');
+  }
+}
+
