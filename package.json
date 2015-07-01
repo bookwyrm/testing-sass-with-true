@@ -4,7 +4,8 @@
   "description": "Sample project exploring a setup for testing Sass with True.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "./node_modules/.bin/mocha --reporter spec",
+    "build-sass": "./node_modules/.bin/node-sass scss/styles.scss css/styles.css"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "sass-true": "~2.0.2",
     "mocha": "~2.2.5",
-    "path": "~0.11.14"
+    "path": "~0.11.14",
+    "node-sass": "~3.2.0"
   }
 }
