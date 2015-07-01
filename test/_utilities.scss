@@ -1,0 +1,29 @@
+// Tests for Utilities
+@import '../scss/utilities';
+
+@include test-module('Utilities') {
+  @include test('unpack [function - 1 arg]') {
+    $test: unpack(1em);
+    $expect: 1em 1em 1em 1em;
+    @include assert-equal($test, $expect, 'Handles one value');
+  }
+
+  @include test('unpack [function - 2 args]') {
+    $test: unpack(1em 2em);
+    $expect: 1em 2em 1em 2em;
+    @include assert-equal($test, $expect, 'Handles two values');
+  }
+
+  @include test('unpack [function - 3 args]') {
+    $test: unpack(1em 2em 3em);
+    $expect: 1em 2em 3em 2em;
+    @include assert-equal($test, $expect, 'Handles three values');
+  }
+
+  @include test('unpack [function - 4 args]') {
+    $test: unpack(1em 2em 3em 4em);
+    $expect: 1em 2em 3em 4em;
+    @include assert-equal($test, $expect, 'Handles four values');
+  }
+}
+
