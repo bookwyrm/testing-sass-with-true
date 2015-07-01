@@ -11,7 +11,7 @@ npm test
 ## Tests with CLI Test Runner
 
 ```
-bundler install
+bundle install
 true-cli test/test.scss          // passing tests
 true-cli test/fail-example.scss  // failing test
 ```
